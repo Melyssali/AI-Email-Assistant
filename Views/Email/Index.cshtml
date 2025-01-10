@@ -1,0 +1,76 @@
+@model List<OpenMindProject.Models.Emails.EmailsModel>
+@using System.Text.Json; // Pour JsonSerializer.Serialize(Model)
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <title>Liste des e-mails</title>
+    <link rel="stylesheet" href="/css/emails.css" />
+</head>
+<body>
+    <div class="my-container">
+
+        <!-- Liste des emails -->
+        <div class="email-list">
+            @foreach (var email in Model)
+            {
+                <div class="email-item" data-email-id="@email.EmailId">
+                    <div class="email-subject">@email.Subjects</div>
+                    <div class="email-preview">@email.Content.Substring(0, Math.Min(email.Content.Length, 50))...</div>
+                </div>
+            }
+        </div>
+
+        <!-- Contenu de l'email -->
+        <div class="content-area">
+            @if (Model.Any())
+            {
+                var firstEmail = Model.First();
+                <div id="email-content" class="email-content">
+                    <div class="email-header">
+                        <h2>@firstEmail.Subjects</h2>
+                        <div class="email-meta">
+                            De: @firstEmail.Sender<br />
+                            Date: @DateTime.Now.ToString("dd MMMM yyyy, HH:mm")
+                        </div>
+                    </div>
+                    <p>@firstEmail.Content</p>
+                </div>
+            }
+            else
+            {
+                <p>Aucun email à afficher.</p>
+            }
+        </div>
+
+        <!-- Zone de réponse IA -->
+        <div class="response-area">
+            <div id="ai-response">
+                <h3>Réponse suggérée</h3>
+                <div class="ai-response">
+                    <div class="ai-response-header">
+                        <div class="ai-icon">AI</div>
+                        <strong>Réponse générée:</strong>
+                    </div>
+                     <pre>Aucune email généré pour le moment. Cliquez sur le bouton "Générer email" pour générer un mail.</pre>
+                     <textarea id="textarea-prompt" placeholder="(Optionnel) Ecrivez un prompt et l'IA vous génèrera une réponse"></textarea>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="btn-generate" class="btn btn-primary">Générer email</button>
+                    <button class="btn btn-secondary">Envoyer la réponse</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Injection de la liste des e-mails en JSON pour JS -->
+    <script>
+        var emailData = @Html.Raw(JsonSerializer.Serialize(Model));
+    </script>
+
+    <!-- Script principal -->
+    <script src="/js/emails.js"></script>
+</body>
+</html>
