@@ -1,8 +1,8 @@
-using OpenAI;
 using Google.Apis.Gmail.v1;
 using OpenMindProject.Services.Gmail;
 using OpenMindProject.Services.ApiKey;
 using OpenMindProject.Services.FileReader;
+using OpenMindProject.Services.EmailService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,17 +12,12 @@ builder.Services.AddRazorPages();
 builder.Services.AddSingleton<FileReaderService>();
 builder.Services.AddSingleton<ApiKeyService>();
 builder.Services.AddScoped<GmailAuthService>();
+builder.Services.AddScoped<EmailService>();
 builder.Services.AddScoped<GmailService>(provider =>
 {
     var AuthService = provider.GetRequiredService<GmailAuthService>();
     return AuthService.AuthenticateGmail();
 });
-// builder.Services.AddScoped<OpenAIClient>(provider =>
-// {
-//     OpenAIClient client = new(Environment.GetEnvironmentVariable("OPENAI_API_KEY"));
-//     return new OpenAIClient();
-
-// });
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

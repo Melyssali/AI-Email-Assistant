@@ -12,9 +12,14 @@ using System.Text;
 
 namespace OpenMindProject.Services.EmailService
 {
-	public class EmailService(GmailService gmailService)
+	public class EmailService
 	{
-		private readonly GmailService _gmailService = gmailService;
+		private readonly GmailService _gmailService;
+		public EmailService(GmailService gmailService)
+		{
+			ArgumentNullException.ThrowIfNull(gmailService);
+			_gmailService = gmailService;
+		}
 		public List<EmailsModel> EmailsToModel()
 		{
 				var emailModels = new List<EmailsModel>();
@@ -29,6 +34,7 @@ namespace OpenMindProject.Services.EmailService
 							var email = _gmailService.Users.Messages.Get("me", message.Id).Execute();
 							var subject = email.Payload.Headers.FirstOrDefault(h => h.Name == "Subject")?.Value ?? "Sans objet";
 							var sender = email.Payload.Headers.FirstOrDefault(h => h.Name == "From")?.Value ?? "Non défini";
+							long? internalDate = email.InternalDate;
 							string content = ExtractContent(email);
 							emailModels.Add(new EmailsModel
 							{
@@ -36,6 +42,7 @@ namespace OpenMindProject.Services.EmailService
 								Sender = sender,
 								Subjects = subject,
 								Content = content,
+								Date = internalDate
 							});
 						}
 					}
@@ -66,13 +73,10 @@ namespace OpenMindProject.Services.EmailService
             {
                 // Remplace les caractères spécifiques à Base64URL
                 string base64 = base64Url.Replace('-', '+').Replace('_', '/');
-                
                 // Ajoute le padding manquant si nécessaire
                 base64 = base64.PadRight(base64.Length + (4 - base64.Length % 4) % 4, '=');
-                
                 // Décode le Base64 en bytes
                 byte[] bytes = Convert.FromBase64String(base64);
-                
                 // Convertit les bytes en chaîne UTF-8
                 return Encoding.UTF8.GetString(bytes);
             }

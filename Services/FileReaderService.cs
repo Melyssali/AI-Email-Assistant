@@ -7,8 +7,16 @@ namespace OpenMindProject.Services.FileReader
     {
         public string ReadFile()
         {
-            using var streamReader = new StreamReader("companysummary.txt");
-            return streamReader.ReadToEnd();
+            try
+            {
+                using var streamReader = new StreamReader("companysummary.txt");
+                return streamReader.ReadToEnd();
+            }
+            catch (FileNotFoundException e)
+            {
+                Console.WriteLine(e.Message);
+                return string.Empty;
+            }
         }
     }
 }

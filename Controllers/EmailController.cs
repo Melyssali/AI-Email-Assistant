@@ -6,14 +6,19 @@ namespace OpenMindProject.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class EmailController(GmailService gmailService) : Controller
+    public class EmailController : Controller
     {
-		private readonly GmailService _gmailService = gmailService;
+		private readonly GmailService _gmailService;
+		private readonly EmailService _emailService;
+        public EmailController(GmailService gmailService, EmailService emailService)
+        {
+            _gmailService = gmailService;
+            _emailService = emailService;
+        }
         [HttpGet]
         public IActionResult GetEmails()
         {
-            var emails = new EmailService(_gmailService);
-            var emailList = emails.EmailsToModel();
+            var emailList = _emailService.EmailsToModel();
             return View("Index", emailList);
         }
     }
