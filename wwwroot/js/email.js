@@ -4,7 +4,7 @@
 // Write your JavaScript code.
 
 document.addEventListener('DOMContentLoaded', function () {
-    let activeEmail = null; // Garde en mémoire l'email actif
+    let activeEmail = null;
 
     const emailItems = document.querySelectorAll('.email-item');
     const emailContentArea = document.querySelector('#email-content');
@@ -26,8 +26,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ EmailContent: activeEmail.Content, PromptContent: inputValue})
-            })
+                body: JSON.stringify({ 
+                    EmailContent: activeEmail.Content,
+                    PromptContent: inputValue})
+                })
                 .then(response => response.json())
                 .then(data => {
                     // Afficher la réponse IA
@@ -39,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 <strong>Réponse générée:</strong>
                             </div>
                              <pre>${data.response}</pre>
-                             <textarea id="textarea-prompt" placeholder="(Optionnel) Ecrivez un prompt et l'IA vous génèrera une réponse"></textarea>
+                             <textarea id="textarea-prompt" placeholder="(Optionnel) Ecrivez un prompt. Ex : 'répond positivement au mail mais dis que nous sommes fermés pendant les fêtes.'"></textarea>
                         </div>
 
                         <div class="action-buttons">
@@ -85,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             <strong>Réponse générée:</strong>
                         </div>
                          <pre>Aucune email généré pour le moment. Cliquez sur le bouton "Générer email" pour générer un mail.</pre>
-                         <textarea id="textarea-prompt" placeholder="Ecrivez un prompt et l'IA vous génèrera une réponse"></textarea>
+                         <textarea id="textarea-prompt" placeholder="(Optionnel) Ecrivez un prompt. Ex : 'répond positivement au mail mais dis que nous sommes fermés pendant les fêtes.'"></textarea>
                     </div>
 
                     <div class="action-buttons">

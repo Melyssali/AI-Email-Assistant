@@ -1,5 +1,5 @@
 @model List<OpenMindProject.Models.Emails.EmailsModel>
-@using System.Text.Json; // Pour JsonSerializer.Serialize(Model)
+@using System.Text.Json;
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -15,7 +15,7 @@
         <div class="email-list">
             @foreach (var email in Model)
             {
-                <div class="email-item" data-email-id="@email.EmailId">
+                <div class="email-item @(email == Model.First() ? "active" : "")" data-email-id="@email.EmailId">
                     <div class="email-subject">@email.Subjects</div>
                     <div class="email-preview">@email.Content.Substring(0, Math.Min(email.Content.Length, 50))...</div>
                 </div>
@@ -35,7 +35,7 @@
                             Date: @firstEmail.Date
                         </div>
                     </div>
-                    <p>@firstEmail.Content</p>
+                    <pre>@firstEmail.Content</pre>
                 </div>
             }
             else
@@ -53,8 +53,8 @@
                         <div class="ai-icon">AI</div>
                         <strong>Réponse générée:</strong>
                     </div>
-                     <pre>Aucune email généré pour le moment. Cliquez sur le bouton "Générer email" pour générer un mail.</pre>
-                     <textarea id="textarea-prompt" placeholder="(Optionnel) Ecrivez un prompt et l'IA vous génèrera une réponse"></textarea>
+                     <pre>Aucune email généré pour le moment. Cliquez sur le bouton "Générer email" pour générer un mail automatique ou écrivez un prompt ci-dessous.</pre>
+                     <textarea id="textarea-prompt" placeholder="(Optionnel) Ecrivez un prompt. Ex : 'répond positivement au mail mais dis que nous sommes fermés pendant les fêtes.'"></textarea>
                 </div>
 
                 <div class="action-buttons">

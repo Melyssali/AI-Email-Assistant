@@ -20,6 +20,7 @@ namespace OpenMindProject.Controllers.OpenAI
             _apiKeyService = apiKeyService;
             _file = filetxt;
             var apiKey = _apiKeyService.GetApi();
+            // _chatClient = new ChatClient("gpt-4", apiKey);
             _chatClient = new ChatClient("gpt-3.5-turbo", apiKey);
         }
         [HttpPost("SendAnswer")]
@@ -36,17 +37,11 @@ namespace OpenMindProject.Controllers.OpenAI
             if (string.IsNullOrEmpty(request.PromptContent))
             {
                 return  $"Contexte : {context} \n" +
-                        $"Tâche : Réponds directement à cet email reçu par Openmind Technologies : \"{request.EmailContent}\". \n" +
-                        $"1. Si l'email est pertinent par rapport aux services ou activités de l'entreprise, formule une réponse complète, chaleureuse, et professionnelle. Intègre les valeurs d'Openmind (humain, collaboration, innovation). \n" +
-                        $"2. Si l'email ne peut pas recevoir de réponse adéquate, informe l'utilisateur de l'application (celui qui utilise cette boîte mail) qu'aucune réponse ne peut être générée pour cet email. \n" +
-                        $"Ta réponse doit être concise, refléter le style d'Openmind, et éviter de répéter des informations évidentes (comme l'adresse mail). " +
-                        $"Inclue une signature professionnelle en fin de réponse.";
+                        $"Tâche : Réponds directement à cet email reçu par Openmind Technologies : \"{request.EmailContent}\". \n";
             }
-
             return  $"Contexte : {context} \n" +
                     $"Tâche : Réponds directement à cet email reçu par Openmind Technologies : \"{request.EmailContent}\" " +
-                    $"en tenant compte des instructions supplémentaires suivantes : {request.PromptContent}. \n" +
-                    $"Assure-toi que ta réponse est concise, reflète le style d'Openmind, et intègre une signature professionnelle.";
+                    $"en tenant compte des instructions supplémentaires suivantes : {request.PromptContent}.";
         }
     }
 }

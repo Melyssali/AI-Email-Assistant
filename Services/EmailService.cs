@@ -1,5 +1,6 @@
 using Google.Apis.Gmail.v1;
 using Microsoft.VisualBasic;
+using Microsoft.AspNetCore.SignalR;
 using OpenMindProject.Models.Emails;
 using System.Text;
 
