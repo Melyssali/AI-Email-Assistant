@@ -4,7 +4,7 @@ using Google.Apis.Gmail.v1;
 
 namespace OpenMindProject.Controllers
 {
-    [Route("[controller]")]
+    [Route("")]
     [ApiController]
     public class EmailController : Controller
     {

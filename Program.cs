@@ -12,14 +12,13 @@ builder.Services.AddRazorPages();
 builder.Services.AddSingleton<FileReaderService>();
 builder.Services.AddSingleton<ApiKeyService>();
 builder.Services.AddScoped<GmailAuthService>();
-builder.Services.AddScoped<EmailService>();
 builder.Services.AddScoped<GmailService>(provider =>
 {
-    var AuthService = provider.GetRequiredService<GmailAuthService>();
-    return AuthService.AuthenticateGmail();
+    var authService = provider.GetRequiredService<GmailAuthService>();
+    return authService.AuthenticateGmail();
 });
+builder.Services.AddScoped<EmailService>();
 var app = builder.Build();
-
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {

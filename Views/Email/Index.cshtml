@@ -15,7 +15,7 @@
         <div class="email-list">
             @foreach (var email in Model)
             {
-                <div class="email-item @(email == Model.First() ? "active" : "")" data-email-id="@email.EmailId">
+                <div class="email-item" data-email-id="@email.EmailId">
                     <div class="email-subject">@email.Subjects</div>
                     <div class="email-preview">@email.Content.Substring(0, Math.Min(email.Content.Length, 50))...</div>
                 </div>
@@ -59,7 +59,7 @@
 
                 <div class="action-buttons">
                     <button id="btn-generate" class="btn btn-primary">Générer email</button>
-                    <button class="btn btn-secondary">Envoyer la réponse</button>
+                    <button id="btn-envoyer" class="btn btn-secondary">Envoyer</button>
                 </div>
             </div>
         </div>

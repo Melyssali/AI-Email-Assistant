@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
         {
             if (!activeEmail)
             {
-                alert('Veuillez sélectionner un email avant de générer une réponse.');
+                alert('Veuillez sélectionner un email avant de générer une réponse');
                 return;
             }
             let inputValue = document.getElementById("textarea-prompt").value;
@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 })
                 .then(response => response.json())
                 .then(data => {
-                    // Afficher la réponse IA
                     aiResponseArea.innerHTML = `
                         <h3>Réponse suggérée</h3>
                         <div class="ai-response">
@@ -46,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                         <div class="action-buttons">
                             <button id="btn-generate" class="btn btn-primary">Générer email</button>
-                            <button class="btn btn-secondary">Envoyer la réponse</button>
+                            <button id="btn-envoyer" class="btn btn-secondary">Envoyer</button>
                         </div>
                     `;
                 })
@@ -54,6 +53,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     console.error('Erreur lors de l\'envoi de la requête :', error);
                     aiResponseArea.innerHTML = `<p>Erreur lors de la génération de la réponse.</p>`;
                 });
+        }
+        if (e.target && e.target.matches("#btn-envoyer"))
+        {
+            alert("Cette fonctionnalité n'a pas encore été integrée");
         }
     });
 
@@ -92,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     <div class="action-buttons">
                         <button id="btn-generate" class="btn btn-primary">Générer email</button>
-                        <button class="btn btn-secondary">Envoyer la réponse</button>
+                        <button id="btn-envoyer" class="btn btn-secondary">Envoyer</button>
                     </div>
                     `;
             } else {
