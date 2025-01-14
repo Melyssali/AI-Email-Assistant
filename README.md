@@ -18,7 +18,7 @@ Une fois lancée, l'application récupère les emails, les affiche. Le contenu d
 - Envoyez un email sur : test.receiver.project@gmail.com ou essayez avec un email déjà reçu.
 - Si vous envoyez un nouvel email, rafraîchissez la page pour voir l'email dans la liste.
 
-### 4. **Générer une réponse**
+### 3. **Générer une réponse**
 - Sélectionnez un email.
 - (Optionnel) Ajoutez un **prompt personnalisé** pour ajuster la réponse si nécessaire, puis cliquez sur Générer email.
 - Cliquez sur "Générer email" pour une réponse automatique.
