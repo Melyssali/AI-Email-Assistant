@@ -12,7 +12,7 @@ Une fois lancée, l'application récupère les emails, les affiche. Le contenu d
 ---
 ## **Utilisation**
 ### 1. **Lancer l'application**
-- Déployée sur Azure, elle est accessible via une URL https://emailassistantproject-e8f3fnereyangyam.canadacentral-01.azurewebsites.net
+- Déployée sur Azure, elle est accessible via l'URL https://emailassistantproject-e8f3fnereyangyam.canadacentral-01.azurewebsites.net
 
 ### 2. **Envoyer un email**
 - Envoyez un email sur : test.receiver.project@gmail.com ou essayez avec un email déjà reçu.
