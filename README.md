@@ -77,6 +77,7 @@ Ce projet m'a permis de :
 - **Ajout d'une base de données** pour stocker et organiser les emails.
 - **Récupération des emails en temps réel** à l'aide de Pub/Sub et SignalR.
 - **Envoi d'emails** directement depuis l'application.
+- **Bouton modifier** pour permettre de modifier directement l'email généré.
 - **Connexion à plusieurs boîtes mail**, avec la possibilité de configurer des comptes Gmail ou autres fournisseurs.
 - **Refonte du front-end** pour une interface plus professionnelle et responsive.
 
