@@ -38,6 +38,7 @@ Ce projet m'a permis de :
 ### 1. **Connexion à la boîte mail test**
 - J'ai créé une boîte mail de test dédiée : `test.receiver.project@gmail.com`.
 - L'application se connecte à cette boîte via l'API Gmail, en utilisant un token stocké pour éviter de demander une reconnexion à chaque utilisation.
+  Il est possible de connecter n'importe quel compte gmail, cependant pour le test j'ai mis ce token pour une connexion rapide à une boite mail test.
 
 ### 2. **Sélection et génération de réponses**
 - Les emails sont affichés dans une interface simple.
