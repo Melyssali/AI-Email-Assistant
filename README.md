@@ -74,6 +74,7 @@ Ce projet m'a permis de :
 ---
 
 ## **Perspectives d'amélioration**
+- **Mobile first** pour une expérience optimale sur mobile.
 - **Ajout d'une base de données** pour stocker et organiser les emails.
 - **Récupération des emails en temps réel** à l'aide de Pub/Sub et SignalR.
 - **Envoi d'emails** directement depuis l'application.
