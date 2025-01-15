@@ -30,7 +30,7 @@ Ce projet m'a permis de :
 - Implémenter des **API** telles que Gmail et OpenAI.
 - Utiliser **Azure App Services** pour héberger et déployer une application.
 - Gérer les **variables d'environnement** pour protéger les données sensibles.
-- Manipuler des fichiers externes comme `context.txt` pour stocker des informations supplémentaires.
+- Manipuler des fichiers externes comme `companysummary.txt` pour stocker des informations supplémentaires.
 
 ---
 
@@ -49,7 +49,7 @@ Ce projet m'a permis de :
 - Les **clés API** et autres données sensibles (comme les credentials Gmail) sont stockées via des **variables d'environnement** sur Azure pour éviter leur inclusion dans le code source.
 
 ### 4. **Contexte de l'entreprise**
-- J'ai intégré un fichier `context.txt` contenant des informations récupérées sur le site web de l'entreprise (par exemple, sa mission et ses services). Ce contexte est utilisé par l'IA pour générer des réponses adaptées et professionnelles.
+- J'ai intégré un fichier `companysummary.txt` contenant des informations récupérées sur le site web de l'entreprise (par exemple, sa mission et ses services). Ce contexte est utilisé par l'IA pour générer des réponses adaptées et professionnelles.
 
 ### 5. **Affichage des emails**
 - L'application affiche les emails récupérés via l'API Gmail.
