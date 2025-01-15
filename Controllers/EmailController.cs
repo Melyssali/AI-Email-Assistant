@@ -12,6 +12,8 @@ namespace OpenMindProject.Controllers
 		private readonly EmailService _emailService;
         public EmailController(GmailService gmailService, EmailService emailService)
         {
+            ArgumentNullException.ThrowIfNull(nameof(gmailService));
+            ArgumentNullException.ThrowIfNull(nameof(emailService));
             _gmailService = gmailService;
             _emailService = emailService;
         }
