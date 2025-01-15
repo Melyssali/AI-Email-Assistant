@@ -21,7 +21,7 @@ Une fois lancée, l'application récupère les emails, les affiche. Le contenu d
 ### 3. **Générer une réponse**
 - Sélectionnez un email.
 - (Optionnel) Ajoutez un **prompt personnalisé** pour ajuster la réponse si nécessaire, puis cliquez sur Générer email.
-- Cliquez sur "Générer email" pour une réponse automatique.
+- Cliquez sur "Générer email" pour une réponse automatique.  
 La fonctionnalité "Envoyer" n'a pas encore été implémentée, mais elle pourrait être ajoutée ultérieurement.
 ---
 ## **Ce que j'ai appris**
@@ -37,7 +37,7 @@ Ce projet m'a permis de :
 ## **Fonctionnalités implémentées**
 ### 1. **Connexion à la boîte mail test**
 - J'ai créé une boîte mail de test dédiée : `test.receiver.project@gmail.com`.
-- L'application se connecte à cette boîte via l'API Gmail, en utilisant un token stocké pour éviter de demander une reconnexion à chaque utilisation.
+- L'application se connecte à cette boîte via l'API Gmail, en utilisant un token stocké pour éviter de demander une reconnexion à chaque utilisation.  
   Il est possible de connecter n'importe quel compte gmail, cependant pour le test j'ai mis ce token pour une connexion rapide à une boite mail test.
 
 ### 2. **Sélection et génération de réponses**
@@ -50,7 +50,7 @@ Ce projet m'a permis de :
 - Les **clés API** et autres données sensibles (comme les credentials Gmail) sont stockées via des **variables d'environnement** sur Azure pour éviter leur inclusion dans le code source.
 
 ### 4. **Contexte de l'entreprise**
-- J'ai intégré un fichier `companysummary.txt` contenant des informations récupérées sur le site web de l'entreprise (par exemple, sa mission et ses services). Ce contexte est utilisé par l'IA pour générer des réponses adaptées et professionnelles.
+- J'ai intégré un fichier `companysummary.txt` contenant des informations récupérées sur le site web de l'entreprise (par exemple, sa mission et ses services). Ce contexte est utilisé par l'IA pour générer des réponses adaptées et professionnelles.  
   Le fichier final se trouve dans la branche `code-production`
 
 ### 5. **Affichage des emails**
