@@ -2,7 +2,7 @@
 
 
 ## **Introduction**
-Ce projet a été réalisé avec **C#** et **.NET** dans le cadre de ma candidature.  
+Ce projet a été réalisé avec **C#** et **.NET**.  
 Email Assistant est un projet **Backend**. Afin de facilité l'essai, j'ai créé un front-end très simple à utiliser sur **ordinateur** pour une expérience optimale.  
 
 Mon objectif était de créer une application backend intégrant une API Gmail et OpenAI, permettant d'automatiser la gestion des emails professionnels en mettant en avant la génération de réponses d'email à l'aide de l'IA.  
