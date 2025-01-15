@@ -51,6 +51,7 @@ Ce projet m'a permis de :
 
 ### 4. **Contexte de l'entreprise**
 - J'ai intégré un fichier `companysummary.txt` contenant des informations récupérées sur le site web de l'entreprise (par exemple, sa mission et ses services). Ce contexte est utilisé par l'IA pour générer des réponses adaptées et professionnelles.
+  Le fichier final se trouve dans la branche `code-production`
 
 ### 5. **Affichage des emails**
 - L'application affiche les emails récupérés via l'API Gmail.
